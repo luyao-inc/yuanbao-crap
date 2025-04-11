@@ -1,0 +1,8 @@
+# DeepSeek API 配置文件
+# 请将此文件复制为 deepseek_config.txt 并填入您的实际API密钥
+
+DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_HERE
+
+# 注意：
+# 1. 请勿将包含真实API密钥的文件提交到代码仓库
+# 2. 您可以从DeepSeek官网获取API密钥: https://platform.deepseek.com/ 

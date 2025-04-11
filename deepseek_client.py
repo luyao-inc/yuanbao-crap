@@ -14,11 +14,28 @@ import re
 load_dotenv()
 
 class DeepSeekClient:
-    def __init__(self, api_key=None):
+    def __init__(self, api_key=None, config_path="deepseek_config.txt"):
         """初始化DeepSeek API客户端"""
-        self.api_key = api_key or os.getenv("DEEPSEEK_API_KEY") or "sk-b4d8ce9a5fe6429da61e1aba29219edd"
+        # 优先使用传入的API密钥，其次尝试从配置文件读取，最后使用环境变量
+        self.api_key = api_key or self._read_from_config(config_path) or os.getenv("DEEPSEEK_API_KEY")
+        if not self.api_key:
+            print("警告: 未找到DeepSeek API密钥，某些功能可能无法正常工作")
         self.api_url = "https://api.deepseek.com/v1/chat/completions"
         
+    def _read_from_config(self, config_path):
+        """从配置文件中读取API密钥"""
+        try:
+            if os.path.exists(config_path):
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        if '=' in line and line.strip().startswith('DEEPSEEK_API_KEY'):
+                            key, value = line.strip().split('=', 1)
+                            return value.strip()
+            return None
+        except Exception as e:
+            print(f"读取DeepSeek配置文件失败: {e}")
+            return None
+    
     def extract_table_from_image(self, image_path):
         """使用DeepSeek API从图像中提取表格内容"""
         try:

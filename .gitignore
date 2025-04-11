@@ -5,6 +5,10 @@ tmp/
 __pycache__/
 *.pyc
 
+# API密钥配置文件
+deepseek_config.txt
+trade_set.txt
+
 # 环境
 yuanbao_env/
 
