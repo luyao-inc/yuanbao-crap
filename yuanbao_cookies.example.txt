@@ -1,0 +1,14 @@
+# 元宝Cookies文件说明
+
+这个目录中应该包含一个名为 `yuanbao_cookies.pkl` 的文件，它保存了元宝平台的登录cookie信息。
+出于安全考虑，实际的cookie文件不会上传到GitHub仓库中。
+
+## 如何生成cookie文件
+1. 首次运行脚本会自动创建cookie文件
+2. 如果您手动登录成功，系统会自动保存cookie
+3. Cookie文件是由`pickle`库序列化后的二进制文件
+
+## 注意事项
+- 请勿将实际的cookie文件分享给他人
+- cookie有一定的有效期，过期后需要重新登录
+- 脚本会自动处理cookie加载和刷新过程 

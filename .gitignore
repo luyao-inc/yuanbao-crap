@@ -1,0 +1,13 @@
+# 敏感数据和临时文件
+yuanbao_cookies.pkl
+*.pkl
+tmp/
+__pycache__/
+*.pyc
+
+# 环境
+yuanbao_env/
+
+# 日志和输出文件
+log.txt
+act_time.txt 
